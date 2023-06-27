@@ -29,10 +29,10 @@ class InfoViewController: UIViewController {
         let alert = UIAlertController(title: "Внимание!", message: "Warning!",
                                       preferredStyle: .actionSheet)
         let action1 = UIAlertAction(title: "OK1", style: .default) { action in
-            print(action.title)
+            print("Ok-1")
         }
         let action2 = UIAlertAction(title: "OK2", style: .destructive) { action in
-            print(action.title)
+            print("Ok-2")
         }
         alert.addAction(action1)
         alert.addAction(action2)

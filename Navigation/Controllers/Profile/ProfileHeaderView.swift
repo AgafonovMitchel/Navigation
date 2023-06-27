@@ -53,7 +53,6 @@ class ProfileHeaderView: UIView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
-        textField.isHidden = true
         
         return textField
     }()
@@ -84,7 +83,11 @@ class ProfileHeaderView: UIView {
     }
     
     @objc func changeStatus() {
-        self.statusTextField.isHidden.toggle()
+        statusLabel.text = statusText
+    }
+    
+    @objc func statusDidChanged() {
+        statusText = statusTextField.text ?? ""
     }
     
     private func setupViews() {
@@ -98,6 +101,7 @@ class ProfileHeaderView: UIView {
         statusTextField.text = statusText
         
         statusButton.addTarget(self, action: #selector(changeStatus), for: .touchUpInside)
+        statusTextField.addTarget(self, action: #selector(statusDidChanged), for: .editingChanged)
         
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -120,7 +124,7 @@ class ProfileHeaderView: UIView {
             statusTextField.leadingAnchor.constraint(equalTo: statusLabel.leadingAnchor),
             statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            statusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
             statusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             statusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             statusButton.heightAnchor.constraint(equalToConstant: 50)
