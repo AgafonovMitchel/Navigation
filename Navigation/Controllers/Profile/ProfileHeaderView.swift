@@ -53,6 +53,7 @@ class ProfileHeaderView: UIView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
+        textField.placeholder = "Tipe something"
         
         return textField
     }()
