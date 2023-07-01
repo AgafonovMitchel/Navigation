@@ -8,12 +8,20 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    let profileHeaderView = ProfileHeaderView()
+
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .purple
+        view.backgroundColor = .systemGray4
         title = "Profile"
     
+        view.addSubview(profileHeaderView)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        profileHeaderView.frame = view.frame
     }
 }

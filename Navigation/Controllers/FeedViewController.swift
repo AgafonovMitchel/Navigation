@@ -23,14 +23,14 @@ class FeedViewController: UIViewController {
         view.backgroundColor = .systemTeal
         title = "Feed"
         setupViews()
-        
+    
     }
     
     @objc func toPostAction(_ sender: UIButton) {
         let post = Post(title: "О чем будет новость")
         let vc = PostViewController(post: post)
         navigationController?.pushViewController(vc, animated: true)
-  
+
     }
     
     private func setupViews() {
